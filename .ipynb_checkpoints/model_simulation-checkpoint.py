@@ -83,14 +83,14 @@ confirmrate_data = pd.read_csv('modeldata/confirm_duration.csv')
 
 
 # Intensity of human mobility
-bmi_data = pd.read_csv('modeldata/XFD_BMIdata.csv')
+bmi_data = pd.read_csv('modeldata/mobility.csv')
 
 
 # In[10]:
 
 
 # Intensity of human mobility without intervention
-bmi_data_nocontrol = pd.read_csv('modeldata/XFD_BMIdata_noctrl.csv')
+bmi_data_nocontrol = pd.read_csv('modeldata/mobility_noctrl.csv')
 
 
 # In[11]:
