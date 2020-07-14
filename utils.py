@@ -314,6 +314,9 @@ def SEIR_MODEL1(Ecumm, Icumm, Rcumm, init_S, init_E, init_I, init_R, bmi, sigma)
 # In[186]:
 
 
+# sample parameters using MCMC methods and save sampled result to Beijing_tracetest.pkl.
+# The pymc package seems to achieve different simulation results in each run, though the seed is set.
+# Beijing_trace.pkl saves the result shown in the paper.
 def sample_from_MCMC():
     streetname = 'Beijing'
     streetid = 0
@@ -329,7 +332,7 @@ def sample_from_MCMC():
                       e2, sigma)
     mc = MCMC(mod1)
     mc.use_step_method(AdaptiveMetropolis, [mod1['alpha1'], mod1['beta1']])#, mod1['s0'], mod1['e0']
-    mc.sample(iter = 45000, burn = 1000, thin = 44, verbose = 0) #23000 35000
+    mc.sample(iter = 45000, burn = 1000, thin = 44, verbose = 0) #23000 35000 number of saved parameters simulated = (item - burn) // thin.
 
     plt.figure(figsize=(8, 6))
     plt.title('SEIR Model for {}'.format(streetname),)
